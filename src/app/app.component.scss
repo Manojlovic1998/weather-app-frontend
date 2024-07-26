@@ -1,0 +1,73 @@
+@import "../../node_modules/bootstrap/scss/functions";
+
+
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+$gradient:  linear-gradient(19deg, #21D4FD 0%, #B721FF 90%);
+
+
+:host {
+  display: flex;
+  min-height: 100vh;
+}
+
+.weather-side {
+    position: relative;
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    max-height: 300px;    
+    z-index: 1;
+}
+
+// Media query for boostrap md and above
+@media (min-width: 768px) {
+  .weather-side {
+    min-width: 300px;
+    max-width: 300px;
+    max-height: 460px;
+  }
+}
+
+.weather-side::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #21D4FD;
+    background-image: $gradient;
+    opacity: 0.65;
+}
+
+
+
+// Weather details
+
+.weather-details {
+  border-radius: 0 0 1rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .weather-details {
+    max-width: 400px;
+    min-height: 410px;
+    border-radius: 0 1rem 1rem 0;
+  }
+}
+
+// Week list
+
+.week-list {
+  background-color: $gray-200;
+  margin: auto 0 auto 0;
+}
+
+
+.week-item:hover {
+  background-color: $gray-100;
+  transform: scale(1.1);
+  border: 1px solid $gray-300;
+}
