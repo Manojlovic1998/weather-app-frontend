@@ -12,7 +12,7 @@ export const weatherResolver: ResolveFn<any> = (route, state) => {
 
   const data = storageService.getItem();
   if (data) {
-    weatherService.realtimeWeatherData.next(data.realtime);
-    weatherService.forecastWeatherData.next(data.forecast);
+    weatherService.realtimeWeatherData.next(data);
+    weatherService.forecastWeatherData.next(data);
   }
 };
