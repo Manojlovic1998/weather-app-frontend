@@ -8,8 +8,10 @@ export class StorageService {
 
   constructor() {}
 
-  setItem(data: any, expiryMinutes: number) {
-    const expiryTime = new Date().getTime() + expiryMinutes * 60 * 1000;
+  setItem(data: any) {
+    // Expiry time should be midnight of the same day
+
+    const expiryTime = new Date().setHours(24, 0, 0, 0);
 
     const dataToStore = {
       data,
@@ -28,7 +30,6 @@ export class StorageService {
 
     try {
       const { data, expiryTime } = JSON.parse(storedData);
-
       if (new Date().getTime() < expiryTime) {
         return data;
       } else {

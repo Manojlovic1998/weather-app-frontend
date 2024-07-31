@@ -201,7 +201,7 @@ export class AppComponent implements OnInit {
       }
       this.forecastWeatherData = data;
       const expiryDate = new Date(data.current.last_updated_epoch * 1000);
-      this.storageService.setItem(data, expiryDate.getMinutes());
+      this.storageService.setItem(data);
     });
   }
 

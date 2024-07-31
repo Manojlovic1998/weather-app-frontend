@@ -8,7 +8,6 @@ import { LocationService } from './location.service';
 export const weatherResolver: ResolveFn<any> = (route, state) => {
   const storageService = inject(StorageService);
   const weatherService = inject(WeatherService);
-  const locationService = inject(LocationService);
 
   const data = storageService.getItem();
   if (data) {
