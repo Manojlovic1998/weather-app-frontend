@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../../weather.service';
+import { WeatherService } from '../weather.service';
 import { LocationService } from '../../location.service';
 import { RealtimeWeatherData } from '../../../common/dtos/realtimeWeatherData.dto';
 

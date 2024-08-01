@@ -1,0 +1,38 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+
+@import "../../../../node_modules/bootstrap/scss/variables";
+
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+// Weather details
+
+.weather-details {
+  border-radius: 0 0 1rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .weather-details {
+    max-width: 400px;
+    min-height: 410px;
+    border-radius: 0 1rem 1rem 0;
+  }
+}
+
+// Week list
+
+.week-list {
+  background-color: $gray-200;
+  margin: auto 0 auto 0;
+}
+
+.week-item:hover {
+  background-color: $gray-100;
+  transform: scale(1.1);
+  border: 1px solid $gray-300;
+}
+
+.week-item.active {
+  background-color: $gray-100;
+  transform: scale(1.1);
+  border: 1px solid $gray-300;
+}

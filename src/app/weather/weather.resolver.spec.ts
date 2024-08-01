@@ -4,8 +4,8 @@ import { ResolveFn } from '@angular/router';
 import { weatherResolver } from './weather.resolver';
 
 describe('weatherResolver', () => {
-  const executeResolver: ResolveFn<boolean> = (...resolverParameters) => 
-      TestBed.runInInjectionContext(() => weatherResolver(...resolverParameters));
+  const executeResolver: ResolveFn<boolean> = (...resolverParameters) =>
+    TestBed.runInInjectionContext(() => weatherResolver(...resolverParameters));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

@@ -1,0 +1,93 @@
+<div
+  class="weather-details d-flex flex-column border-md-top border-bottom border-end border-start border-start-md-0 border-light-subtle bg-light-subtle shadow-lg p-4"
+>
+  <ng-container *ngIf="realTimeWeatherData; else realTimePlaceholder">
+    <!-- Precipitation -->
+    <div class="d-flex justify-content-between">
+      <p class="fw-bold fs-5 text-uppercase">Feels like</p>
+      <p class="fs-5">
+        {{ realTimeWeatherData.current.feelslike_c }}
+        °C
+      </p>
+    </div>
+
+    <!-- Humidity -->
+    <div class="d-flex justify-content-between mt-2">
+      <p class="fw-bold fs-5 text-uppercase">Humidity</p>
+      <p class="fs-5">{{ realTimeWeatherData.current.humidity }} %</p>
+    </div>
+
+    <!-- Wind -->
+    <div class="d-flex justify-content-between mt-2">
+      <p class="fw-bold fs-5 text-uppercase">Wind</p>
+      <p class="fs-5">
+        {{ realTimeWeatherData.current.wind_kph }}
+        km/h
+      </p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="forecastWeatherData; else forecastPlaceholder">
+    <div class="row mt-5 gap-1 week-list rounded-3">
+      @for(forecastday of forecastWeatherData.forecast.forecastday; track
+      forecastday.date ) {
+      <div
+        class="col d-flex flex-column text-center rounded-4 week-item gap-2 py-2"
+      >
+        <img
+          src="{{ forecastday.day.condition.icon }}"
+          alt="Weather Icon"
+          class="img-fluid mx-auto"
+          height="60"
+          width="60"
+        />
+        <p>{{ forecastday.day.avgtemp_c }} °C</p>
+        <p>
+          {{ forecastday.date | date : "EEEE" }}
+        </p>
+      </div>
+      }
+    </div>
+    <app-modal-toggler-btn (clickEvent)="toggleModal($event)" />
+  </ng-container>
+</div>
+
+<app-modal [show]="showFormModal" (hideModal)="toggleModal($event)" />
+
+<ng-template #realTimePlaceholder>
+  <div class="d-flex justify-content-between">
+    <p class="fw-bold fs-5 text-uppercase">Feels like</p>
+    <span class="placeholder col-4"></span>
+  </div>
+
+  <!-- Humidity -->
+  <div class="d-flex justify-content-between mt-2">
+    <p class="fw-bold fs-5 text-uppercase">Humidity</p>
+    <span class="placeholder col-4"></span>
+  </div>
+
+  <!-- Wind -->
+  <div class="d-flex justify-content-between mt-2">
+    <p class="fw-bold fs-5 text-uppercase">Wind</p>
+    <span class="placeholder col-4"></span>
+  </div>
+</ng-template>
+
+<ng-template #forecastPlaceholder>
+  <div class="row mt-5 gap-1 week-list rounded-3">
+    <ng-container *ngFor="let item of [].constructor(3); let i = index">
+      <div
+        class="col d-flex flex-column text-center rounded-4 week-item gap-2 py-2"
+      >
+        <span class="placeholder col-12"></span>
+        <p>
+          <span class="placeholder col-12"></span>
+        </p>
+        <p>
+          <span class="placeholder col-12"></span>
+        </p>
+      </div>
+    </ng-container>
+  </div>
+  <app-modal-toggler-btn />
+</ng-template>

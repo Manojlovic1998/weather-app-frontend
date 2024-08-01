@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { weatherResolver } from './weather.resolver';
+import { weatherResolver } from './weather/weather.resolver';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/weather', pathMatch: 'full' },
