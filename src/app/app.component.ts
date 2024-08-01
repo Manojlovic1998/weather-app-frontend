@@ -6,18 +6,26 @@ import { LocationService } from './location.service';
 import { RealtimeWeatherData } from '../common/dtos/realtimeWeatherData.dto';
 import { ForecastWeatherData } from '../common/dtos/forecastWeatherData.dto';
 import { StorageService } from './storage.service';
+import { ModalTogglerBtnComponent } from './modal/modal-toggler-btn/modal-toggler-btn.component';
+import { ModalComponent } from './modal/modal.component';
 
 interface forecastWeatherData {}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    ModalTogglerBtnComponent,
+    ModalComponent,
+  ],
   providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  showFormModal: boolean = false;
   realTimeWeatherData: RealtimeWeatherData = {
     location: {
       name: '',
@@ -211,5 +219,9 @@ export class AppComponent implements OnInit {
 
   fetchForecastWeather(location: string, days: number) {
     this.weatherService.getForecastWeather(location, days);
+  }
+
+  toggleModal(event: boolean) {
+    this.showFormModal = event;
   }
 }

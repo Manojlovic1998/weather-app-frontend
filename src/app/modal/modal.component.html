@@ -1,0 +1,55 @@
+<div
+  [ngClass]="{ show: show, 'd-block': show, 'modal fade': true }"
+  tabindex="-1"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Manage Locations</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="onHideModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <label for="location" class="form-label d-block"
+            >Location
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="location"
+                name="location"
+                placeholder="Enter location"
+                #location
+                ngModel
+                required
+              />
+              <button
+                class="btn btn-outline-primary d-flex align-items-center"
+                type="submit"
+                id="button-addon2"
+              >
+                <ng-icon name="bootstrapSearch" size="16"></ng-icon>
+              </button>
+            </div>
+          </label>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="onHideModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

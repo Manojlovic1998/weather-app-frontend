@@ -83,10 +83,9 @@
           </div>
           }
         </div>
-        <button class="btn btn-md btn-primary mt-auto rounded-5">
-          Change Location
-        </button>
+        <app-modal-toggler-btn (clickEvent)="toggleModal($event)" />
       </div>
     </div>
   </div>
 </div>
+<app-modal [show]="showFormModal" (hideModal)="toggleModal($event)" />

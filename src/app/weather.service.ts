@@ -43,10 +43,6 @@ export class WeatherService {
     });
   }
 
-  setRealTimeWeatherData(data: any) {
-    this.realtimeWeatherData = data;
-  }
-
   getForecastWeather(location: string, days: number) {
     const params = new HttpParams().set('location', location).set('days', days);
 
@@ -58,9 +54,5 @@ export class WeatherService {
         console.error(error);
       },
     });
-  }
-
-  setForecastWeatherData(data: any) {
-    this.forecastWeatherData = data;
   }
 }
