@@ -1,0 +1,64 @@
+<div
+  class="card weather-side rounded-4 overflow-hidden ms-md-auto shadow-lg"
+  *ngIf="realTimeWeatherData; else placeholder"
+>
+  <img
+    src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    alt="Weather Image"
+    class="card-img object-fit-cover"
+  />
+  <div class="card-img-overlay z-3 text-white d-flex flex-column ms-2">
+    <!-- Heder of the card image -->
+    <h5 class="display-6 fw-semibold mt-3">
+      {{ currentDay | date : "EEEE" }}
+    </h5>
+    <p class="fs-5 fw-semibold">
+      {{ currentDay | date : "dd MMM YYYY" }}
+    </p>
+    <p class="fs-5 fw-semibold">
+      {{ realTimeWeatherData.location.name }}
+    </p>
+
+    <!-- Footer of the card image -->
+    <div class="mt-auto mb-2">
+      <p class="display-4 fw-bold">
+        {{ realTimeWeatherData.current.temp_c }}°C
+      </p>
+      <p class="fs-2 fw-bold">
+        {{ realTimeWeatherData.current.condition.text }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<ng-template #placeholder>
+  <div class="card weather-side rounded-4 overflow-hidden ms-md-auto shadow-lg">
+    <img
+      src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Weather Image"
+      class="card-img object-fit-cover"
+    />
+    <div class="card-img-overlay z-3 text-white d-flex flex-column ms-2">
+      <!-- Heder of the card image -->
+      <h5 class="display-6 fw-semibold mt-3">
+        {{ currentDay | date : "EEEE" }}
+      </h5>
+      <p class="fs-5 fw-semibold">
+        {{ currentDay | date : "dd MMM YYYY" }}
+      </p>
+      <p class="fs-5 fw-semibold">
+        <span class="placeholder col-7"></span>
+      </p>
+
+      <!-- Footer of the card image -->
+      <div class="mt-auto mb-2">
+        <p class="display-4 fw-bold">
+          <span class="placeholder col-7"></span>
+        </p>
+        <p class="fs-2 fw-bold">
+          <span class="placeholder col-7"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</ng-template>

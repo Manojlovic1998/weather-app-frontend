@@ -8,6 +8,7 @@ import { ForecastWeatherData } from '../common/dtos/forecastWeatherData.dto';
 import { StorageService } from './storage.service';
 import { ModalTogglerBtnComponent } from './modal/modal-toggler-btn/modal-toggler-btn.component';
 import { ModalComponent } from './modal/modal.component';
+import { WeatherComponent } from './weather/weather.component';
 
 interface forecastWeatherData {}
 
@@ -19,6 +20,7 @@ interface forecastWeatherData {}
     CommonModule,
     ModalTogglerBtnComponent,
     ModalComponent,
+    WeatherComponent,
   ],
   providers: [],
   templateUrl: './app.component.html',
