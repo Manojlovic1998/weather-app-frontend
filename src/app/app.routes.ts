@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 import { weatherResolver } from './weather/resolver/weather.resolver';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/weather', pathMatch: 'full' },
   {
-    path: 'weather',
+    path: '',
     loadComponent: () => import('./app.component').then((m) => m.AppComponent),
+    pathMatch: 'full',
     resolve: [weatherResolver],
   },
 ];
