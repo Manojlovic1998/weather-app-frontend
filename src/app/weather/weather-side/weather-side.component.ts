@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../weather.service';
-import { LocationService } from '../../location.service';
+import { WeatherService } from '../services/weather.service';
+import { LocationService } from '../../shared/services/location.service';
 import { RealtimeWeatherData } from '../../../common/dtos/realtimeWeatherData.dto';
 
 @Component({
@@ -30,6 +30,7 @@ export class WeatherSideComponent implements OnInit {
       }
       this.location = city;
       this.weatherService.getRealTimeWeather(this.location);
+      this.weatherService.getForecastWeather(this.location, 3);
     });
 
     this.weatherService.realtimeWeatherData.subscribe((data) => {
@@ -37,6 +38,13 @@ export class WeatherSideComponent implements OnInit {
         return;
       }
       this.realTimeWeatherData = data;
+    });
+
+    this.weatherService.forecastWeatherData.subscribe((data) => {
+      if (data === null) {
+        return;
+      }
+      console.log(data);
     });
   }
 }

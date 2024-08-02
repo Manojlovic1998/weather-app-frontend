@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RealtimeWeatherData } from '../../../common/dtos/realtimeWeatherData.dto';
-import { WeatherService } from '../weather.service';
+import { WeatherService } from '../services/weather.service';
 import { ForecastWeatherData } from '../../../common/dtos/forecastWeatherData.dto';
-import { StorageService } from '../../storage.service';
+import { StorageService } from '../../shared/services/storage.service';
 import { CommonModule } from '@angular/common';
 import { ModalTogglerBtnComponent } from '../../modal/modal-toggler-btn/modal-toggler-btn.component';
 import { ModalComponent } from '../../modal/modal.component';

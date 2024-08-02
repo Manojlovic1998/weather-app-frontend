@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { StorageService } from '../storage.service';
+import { StorageService } from '../../shared/services/storage.service';
 
 @Injectable({
   providedIn: 'root',
