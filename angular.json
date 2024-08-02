@@ -37,6 +37,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://manojlovic1998.github.io/weather-app-frontend/",
               "budgets": [
                 {
                   "type": "initial",
@@ -101,7 +102,10 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://Manojlovic1998.github.io/weather-app-frontend/"
+          }
         }
       }
     }
